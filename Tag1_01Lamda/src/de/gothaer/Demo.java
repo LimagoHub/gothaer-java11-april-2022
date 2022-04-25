@@ -11,25 +11,12 @@ public class Demo {
 	}
 
 	private void run() {
+		//Supplier<Integer> supplier =  this::foo;
+		Supplier<Integer> supplier =  () -> 42;
+		Consumer<String> consumer = message->System.out.println(message);
 		
-		MY_PTR ptr = new MY_PTR() {
-			int zustand = 0;
-			@Override
-			public int myMethodName() {
-				zustand ++;
-				return zustand;
-			}
-		};
-		MY_PTR ptr2 = this::foo;
-		
-		int  e1 = ptr.myMethodName();
-		int e2 = ptr2.myMethodName();
-		
-		Supplier<Integer> supplier = this::foo;
-		int e3 = supplier.get();
-		
-		Consumer<String> consumer = System.out::println;
-		consumer.accept("Hallo");
+		int ergebnis = supplier.get();
+		consumer.accept("Hallo Welt " + ergebnis);
 	}
 	
 	private int foo() {
