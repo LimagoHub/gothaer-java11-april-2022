@@ -11,28 +11,17 @@ public class Demo {
 	}
 
 	private void run() {
-		//Supplier<Integer> supplier =  this::foo;
-		Supplier<Integer> supplier =  () -> 42;
-		Consumer<String> consumer = message->System.out.println(message);
+		final int x = 10;
+		Supplier<Integer> supplier =  () -> 42 + x;
+
 		
 		int ergebnis = supplier.get();
-		consumer.accept("Hallo Welt " + ergebnis);
+		System.out.println(ergebnis);
 	}
 	
-	private int foo() {
-		return 42;
-	}
-	
-	private void ausgabe(String message) {
-		System.out.println(message);
-	}
-	
-	
-	// Single Abstract Method Interface (SAM)
-	@FunctionalInterface
-	static interface MY_PTR {
-		int myMethodName();
-		
+	private Supplier<Integer> createSupplier() {
+		int x = 10;
+		return  () -> 42 + x;
 	}
 
 }
