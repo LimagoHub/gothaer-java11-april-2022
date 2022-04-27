@@ -1,7 +1,5 @@
 package de.application;
 
-import java.util.ServiceLoader;
-
 import de.dependency.MyDependency;
 
 
